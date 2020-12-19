@@ -1,38 +1,17 @@
 
-![alt text](GoChaseIt.png)
-# Go Chase It
-The **Go Chase It** project is the second project that comes in **ROS Essentials** lesson in Robotics Software Engineer Nanodegree Program. This project is built upon the first project which has a custom built world. In addition to that, there is a custom built two wheeled robot with a lidar and a camera component whose data can be visualized by Rviz.
-With additional service (called **process_images**) robot follows the sphere by analyzing the camera view.
+![alt text](Localization.png)
+# Where Am I
+This project is the third project that comes in **Localization** lesson in Robotics Software Engineer Nanodegree Program. This project is built upon the second project which has a world and robot. In this project, the robot can be controlled by keyboard and AMCL package is used for localize the robot by analyzing lidar scan data.
 
 ### Directory Structure
 ```
-    .GoChaseIt                         # Go Chase It Project
-    ├── my_robot                       # my_robot package                   
-    │   ├── launch                     # launch folder for launch files   
-    │   │   ├── robot_description.launch
-    │   │   ├── world.launch
-    │   ├── meshes                     # meshes folder for sensors
-    │   │   ├── hokuyo.dae
-    │   ├── urdf                       # urdf folder for xarco files
-    │   │   ├── my_robot.gazebo
-    │   │   ├── my_robot.xacro
-    │   ├── rviz                       # rviz folder for rviz configuration data
-    │   │   ├── config_file.rviz
-    │   ├── world                      # world folder for world files
-    │   │   ├── MyFirstRosWorld.world
-    │   ├── CMakeLists.txt             # compiler instructions
-    │   ├── package.xml                # package info
-    ├── ball_chaser                    # ball_chaser package                   
-    │   ├── launch                     # launch folder for launch files   
-    │   │   ├── ball_chaser.launch
-    │   ├── src                        # source folder for C++ scripts
-    │   │   ├── drive_bot.cpp
-    │   │   ├── process_images.cpp
-    │   ├── srv                        # service folder for ROS services
-    │   │   ├── DriveToTarget.srv
-    │   ├── CMakeLists.txt             # compiler instructions
-    │   ├── package.xml                # package info                  
-    └── GoChaseIt.png                 # screenshot from the project                          
+    .WhereAmI                          
+    ├── my_robot                       # main project file that includes launch files              
+    ├── ball_chaser                    # can be ignored for this project!                  
+    ├── pgm_map_creator                # for creating 2d map view of world   
+    ├── teleop_twist_keyboard          # for controlling from keyboard   
+    ├── CMakeLists.txt                 # ball_chaser package   
+    └── Localization.png               # screenshot from the project                          
 ```
 
 ### Steps to launch the simulation
@@ -49,7 +28,7 @@ $ catkin_make
 #### Step 2 | Clone the repository
 ```sh
 $ cd catkin/src
-$ git clone https://github.com/CetinFurkan/GoChaseIt.git  
+$ git clone https://github.com/CetinFurkan/ROS_WhereAmI.git  
 $ cd ..
 $ catkin_make
 ```
@@ -59,8 +38,9 @@ $ catkin_make
 $ source devel/setup.bash
 ```
 
-#### Step 4 | Launch the simulation environment
+#### Step 4 | Launch the simulation (each in seperated console)
 ```sh
 $ roslaunch my_robot world.launch 
-$ roslaunch ball_chaser ball_chaser.launch
+$ roslaunch my_robot amcl.launch
+$ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 ```
