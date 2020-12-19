@@ -6,12 +6,12 @@ This project is the third project that comes in **Localization** lesson in Robot
 ### Directory Structure
 ```
     .WhereAmI                          
-    ├── my_robot                       # main project file that includes launch files              
-    ├── ball_chaser                    # can be ignored for this project!                  
+    ├── my_robot                       # main project file that includes launch files
+    ├── ball_chaser                    # can be ignored for this project!
     ├── pgm_map_creator                # for creating 2d map view of world   
     ├── teleop_twist_keyboard          # for controlling from keyboard   
     ├── CMakeLists.txt                 # ball_chaser package   
-    └── Localization.png               # screenshot from the project                          
+    └── Localization.png               # screenshot from the project
 ```
 
 ### Steps to launch the simulation
